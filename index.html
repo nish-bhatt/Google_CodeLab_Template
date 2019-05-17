@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<meta charset="UTF-8">
+		<title>Title goes here...</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="./codelab-elements-dark.css">
+		<style>
+			.success {
+			color: #1e8e3e;
+			}
+			.error {
+			color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<google-codelab codelab-gaid=""
+			id="actions-1"
+			title="Title goes here..."
+			environment="web"
+			feedback-link="#">
+			<google-codelab-step label="Step 1 title" duration="4">
+				<p>1st paragraph, Actions on Google is a developer platform that lets you create software to extend the functionality of the <a href="https://assistant.google.com/" target="_blank">Google Assistant</a>, Google&#39;s virtual personal assistant, across more than 1 billion devices, including smart speakers, phones, cars, TVs, headphones, and more. </p>
+				<p>2nd paragraph, Users engage Google Assistant in conversation to get things done, like buying groceries or booking a ride. (For a complete list of what&#39;s possible now, see the <a href="https://assistant.google.com/explore/" target="_blank">Actions directory</a>.) As a developer, you can use Actions on Google to easily create and manage delightful and effective conversational experiences between users and your own 3rd-party fulfillment service.</p>
+				<h3 is-upgraded>h3 bold subtitle</h3>
+				<p>In this codelab, you&#39;ll build a simple conversational Action with these features:</p>
+				<h2 is-upgraded>YouTube Video (iframe/local storage)</h2>
+				<br>
+				<iframe class="youtube-video" src="https://www.youtube.com/embed/AdPV-1qB5aA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<br>
+				<iframe class="youtube-video" src="./img/vid.mp4" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<h2 is-upgraded>Image</h2>
+				<p class="image-container"><img title="Figure 1: description about image" style="width: 560.00px" src="img/example.png"></p>
+				<h2 is-upgraded>Button list</h2>
+				<ul>
+					<li>How to add the CameraX dependencies.</li>
+					<li>How to display the camera preview in an activity. (Preview use case)</li>
+					<li>How to take a photo, saving it to storage. (ImageCapture use case)</li>
+					<li><em>&#34;Red&#34;</em></li>
+					<li><em>&#34;I love green.&#34;</em></li>
+					<li><em>&#34;My favorite is pink.&#34; </em></li>
+				</ul>
+				<h2 class="checklist" is-upgraded>Check list</h2>
+				<ul class="checklist">
+					<li>Understand how Actions work.</li>
+					<li>How to create a project in the Actions Console.</li>
+					<li>How to create a Dialogflow agent.</li>
+				</ul>
+			</google-codelab-step>
+			<google-codelab-step label="Step 2 title" duration="4">
+				<h2 is-upgraded>Banners</h2>
+				<aside class="special">
+					<p><strong>Positive header:</strong></p>
+					<ul>
+						<li><strong>Action</strong>: An Action is an entry point into an interaction that you build for the Assistant. Users can request your Action by typing or speaking to the Assistant.</li>
+					</ul>
+				</aside>
+				<aside class="warning">
+					<p><strong>Warning header:</strong></p>
+					<ul>
+						<li><strong>Action</strong>: An Action is an entry point into an interaction that you build for the Assistant. Users can request your Action by typing or speaking to the Assistant.</li>
+					</ul>
+				</aside>
+				<h2 is-upgraded>One-line command/Multi-line code</h2>
+				<pre><code>window.ExperimentalBadge.set(0);</code></pre>
+				<h3 is-upgraded><a href="https://github.com/actions-on-google/codelabs-nodejs/blob/master/level1-complete/functions/index.js" target="_blank">index.js</a></h3>
+				<pre><code>document.querySelectorAll(&#39;img[alt]:not([alt=&#34;&#34;])&#39;).forEach(async (img) =&gt; {
+  try {
+    const faces = await new FaceDetector().detect(img);
+    faces.forEach(face =&gt; {
+      const div = document.createElement(&#39;div&#39;);
+      const box = face.boundingBox;
+      const computedStyle = getComputedStyle(img);
+      const [top, right, bottom, left] = [
+        computedStyle.marginTop,
+        computedStyle.marginRight,
+        computedStyle.marginBottom,
+        computedStyle.marginLeft
+      ].map(m =&gt; parseInt(m, 10));
+      const scaleX = img.width / img.naturalWidth;
+      const scaleY = img.height / img.naturalHeight;
+      div.style.backgroundColor = &#39;rgba(255, 0, 0, 0.5)&#39;;
+      div.style.position = &#39;absolute&#39;;
+      div.style.top = `${scaleY * box.top + top}px`;
+      div.style.left = `${scaleX * box.left + left}px`;
+      div.style.width = `${scaleX * box.width}px`;
+      div.style.height = `${scaleY * box.height}px`;
+      img.before(div);
+    });
+  } catch(e) {
+    console.error(e);
+  }
+});</code></pre>
+				<h2 is-upgraded>In-line code/command </h2>
+				<p>this is how add <code>In-line command</code> in paragraph</p>
+				<h2 is-upgraded><strong>Download button</strong></h2>
+				<p>
+					<a href="./img/2.jpg" target="_blank">
+						<paper-button class="colored" raised>
+							<iron-icon icon="file-download"></iron-icon>
+							Download the image file
+						</paper-button>
+					</a>
+				</p>
+				<p>So, how does an Action work?</p>
+			</google-codelab-step>
+			<google-codelab-step label="Step 3 title" duration="11">
+				<p>Add table as below</p>
+				<table>
+					<tr>
+						<td colspan="1" rowspan="1">
+							<p><strong>Field</strong></p>
+						</td>
+						<td colspan="1" rowspan="1">
+							<p><strong>Value</strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">
+							<p>Registry ID</p>
+						</td>
+						<td colspan="1" rowspan="1">
+							<p>my-registry</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">
+							<p>Region</p>
+						</td>
+						<td colspan="1" rowspan="1">
+							<p>us-central1</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">
+							<p>Protocol</p>
+						</td>
+						<td colspan="1" rowspan="1">
+							<p>MQTT</p>
+						</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">
+							<p> 1. Select the device or emulator.</p>
+							<p>If the Android emulator is not already running, select<strong> Tools -&gt; Android -&gt; AVD Manager</strong> to <a href="https://developer.android.com/studio/run/managing-avds.html" target="_blank">create a virtual device and start the emulator</a>. If an AVD already exists, you can start the emulator directly from the device selector in IntelliJ, as shown in the next step.</p>
+							<p>(For the iOS Simulator, if it is not already running, launch the simulator on your development machine by selecting<strong> Flutter Device Selection -&gt; Open iOS Simulator</strong>.)</p>
+						</td>
+					</tr>
+				</table>
+			</google-codelab-step>
+			<google-codelab-step label="Next steps" duration="2">
+				<p><strong>Congratulations!</strong></p>
+				<google-codelab-survey survey-id="mdc-101-flutter-2">
+					<h4>I was able to complete this codelab with a reasonable amount of time and effort</h4>
+					<paper-radio-group>
+						<paper-radio-button>Strongly agree</paper-radio-button>
+						<paper-radio-button>Agree</paper-radio-button>
+						<paper-radio-button>Neutral</paper-radio-button>
+						<paper-radio-button>Disagree</paper-radio-button>
+						<paper-radio-button>Strongly disagree</paper-radio-button>
+					</paper-radio-group>
+					<h4>I would like to continue using Material Components in the future</h4>
+					<paper-radio-group>
+						<paper-radio-button>Strongly agree</paper-radio-button>
+						<paper-radio-button>Agree</paper-radio-button>
+						<paper-radio-button>Neutral</paper-radio-button>
+						<paper-radio-button>Disagree</paper-radio-button>
+						<paper-radio-button>Strongly disagree</paper-radio-button>
+					</paper-radio-group>
+				</google-codelab-survey>
+				<ul>
+					<li><a href="http://actions.google.com" target="_blank">actions.google.com</a>: The official documentation site for Actions on Google.</li>
+					<li><a href="https://github.com/actions-on-google/" target="_blank">Actions on Google GitHub repo</a>: Sample code and libraries.</li>
+					<li><a href="https://dialogflow.com/" target="_blank">Dialogflow.com</a>: The official documentation site for Dialogflow.</li>
+					<li><a href="https://www.reddit.com/r/GoogleAssistantDev/" target="_blank">r/GoogleAssistantDev</a>: The official Reddit community for developers working with the Google Assistant.</li>
+				</ul>
+				<p>Follow us on Twitter <a href="https://twitter.com/ActionsOnGoogle" target="_blank">@ActionsOnGoogle</a> to stay tuned to our latest announcements, and tweet to <a href="https://twitter.com/hashtag/AoGDevs?src=hash" target="_blank">#AoGDevs</a> to share what you have built!</p>
+				<h3 is-upgraded><strong>Feedback survey</strong></h3>
+				<p>Before you go, <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNFnnrjUxcRp6NTbWjd7bG6e09B7z3CYJsxirEUcjGF1BxEw/viewform" target="_blank">please fill out this form</a> to let us know how we&#39;re doing!</p>
+			</google-codelab-step>
+		</google-codelab>
+		<script src="./native-shim.js"></script>
+		<script src="./custom-elements.min.js"></script>
+		<script src="./prettify.js"></script>
+		<script src="./codelab-elements.js"></script>
+	</body>
+</html>
